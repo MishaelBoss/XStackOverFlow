@@ -1,10 +1,10 @@
 "use client"
 import { FormEvent, useState } from 'react';
-import { User } from '@/app/types/index.js';
 import { useRouter } from 'next/navigation'
 import "../authorization.css";
 import Link from 'next/link';
 import { PAGES } from '@/app/config/page.config';
+import { User } from '@/app/shared/types/user.interface';
 
 export default function Login() {
   const [formData, setFormData] = useState<User>({

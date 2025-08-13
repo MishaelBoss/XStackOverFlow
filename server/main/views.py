@@ -134,7 +134,7 @@ class ViewProfileAPI(APIView):
         try:
             user = User.objects.get(id=id)
             profile = UserProfile.objects.get(user=user)
-            posts = Post.objects.filter(owner=user).order_by('-date_crete')
+            posts = Post.objects.filter(owner=user).order_by('-created_at')
             posts_data = []
             for post in posts:
                 posts_data.append({
@@ -143,7 +143,7 @@ class ViewProfileAPI(APIView):
                     'information': post.information,
                     'image': request.build_absolute_uri(post.image.url) if post.image else None,
                     'category': post.category,
-                    'date_crete': post.date_crete.strftime('%Y-%m-%d %H:%M:%S'),
+                    'created_at': post.created_at.strftime('%Y-%m-%d %H:%M:%S'),
                     'isDecided': post.isDecided,
                     'voice': post.voice,
                 })
@@ -183,7 +183,7 @@ class PostAPI(APIView):
             'information': post.information,
             'image': request.build_absolute_uri(post.image.url) if post.image else None,
             'category': post.category,
-            'date_crete': post.date_crete.strftime('%Y-%m-%d %H:%M:%S'),
+            'created_at': post.created_at.strftime('%Y-%m-%d %H:%M:%S'),
             'isDecided': post.isDecided,
             'voice': post.voice,
             'owner': {

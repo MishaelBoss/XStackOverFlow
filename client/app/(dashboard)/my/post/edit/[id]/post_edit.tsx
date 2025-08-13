@@ -1,6 +1,6 @@
 "use client"
 import { PAGES } from "@/app/config/page.config";
-import { Post } from "@/app/types";
+import { Post } from "@/app/shared/types/post.interface";
 import { useRouter } from "next/navigation";
 import { useEffect, useState } from "react";
 
@@ -10,24 +10,21 @@ type Props = {
 
 export default function PostEdit({ params }: Props) {
     const [formData, setFormData] = useState<Post>({
-        id: undefined,
+        id: 0,
         title: '',
         information: '',
         image: null,
         category: '',
-        date_crete: '',
+        created_at: '',
         isDecided: false,
         voice: '',
         owner: '',
-        profile: {
-            name: '',
-            surname: '',
-            patronymic: '',
-            phone: '',
-            about: '',
-            years: '',
-            image: null,
-        }
+        name: '',
+        surname: '',
+        patronymic: '',
+        phone: '',
+        about: '',
+        years: '',
     });
     const [imagePreview, setImagePreview] = useState<string | null>(null);
     const router = useRouter()

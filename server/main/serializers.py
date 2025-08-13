@@ -75,9 +75,9 @@ class PostSerializer(serializers.ModelSerializer):
     class Meta:
         model = Post
         fields = [
-            'id', 'title', 'information', 'image', 'category', 'date_crete', 'isDecided', 'voice', 'owner'
+            'id', 'title', 'information', 'image', 'category', 'created_at', 'isDecided', 'voice', 'owner'
         ]
-        read_only_fields = ('id', 'date_crete', 'image', 'owner')
+        read_only_fields = ('id', 'created_at', 'image', 'owner')
     def validate(self, attrs):
         ctx = getattr(self, 'context', {}) or {}
         request = ctx.get('request')

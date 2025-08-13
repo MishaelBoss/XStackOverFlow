@@ -1,9 +1,9 @@
 'use client'
 import { useRouter } from "next/navigation";
 import { useEffect, useState } from "react";
-import { Post } from "@/app/types";
 import { CartPost } from "@/app/components/shared/cart_post";
 import CheckImage from '@/public/check.png'
+import { Post } from "@/app/shared/types/post.interface";
 
 export default function PostList() {
   const [posts, setPosts] = useState<Post []>([]);
@@ -64,7 +64,6 @@ export default function PostList() {
       }
 
       setPosts(posts.filter((post) => post.id !== id));
-      // setSuccess('Компания удалена!');
     } catch (err: any) {
       if (err.message.includes('Токен') || err.message.includes('401')) {
         router.push('/login');
@@ -79,7 +78,7 @@ export default function PostList() {
       ) : (
         <div className="p-20">
           {posts.map((post) => (
-            <CartPost key={post.id} post={{id: post.id, title: post.title, image: CheckImage, isDecided: post.isDecided, date_crete: post.date_crete}}/>
+            <CartPost key={post.id} post={{id: post.id, title: post.title, image: CheckImage, isDecided: post.isDecided, created_at: post.created_at}}/>
           ))}
         </div>
       )}

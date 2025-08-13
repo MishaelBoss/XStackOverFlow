@@ -1,8 +1,8 @@
 'use client'
 import { useState, useEffect } from 'react';
 import { useRouter } from 'next/navigation'
-import { Comment } from '@/app/types/index.js';
 import '@/app/authorization/authorization.css'    
+import { Comment } from '@/app/shared/types/comment.interface';
 
 type Props = {
   params: Promise<{ id: string }>

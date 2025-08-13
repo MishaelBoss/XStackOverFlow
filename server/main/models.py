@@ -25,13 +25,13 @@ class Post(models.Model):
         ('3', 'Остальное'),
     ]
     category = models.CharField(max_length=1, choices=CATEGORY_CHOICES, default='1')
-    date_crete = models.DateTimeField(auto_now_add=True)
+    created_at = models.DateTimeField(auto_now_add=True)
     isDecided = models.BooleanField(blank=True, null=False, default=False)
     voice = models.IntegerField(blank=True, default=0)
     owner = models.ForeignKey(User, on_delete=models.SET_NULL, null=True, blank=True, related_name='owner_post')
 
     class Meta:
-        ordering = ['-date_crete']
+        ordering = ['-created_at']
 
     def __str__(self):
         return f'Post {self.title} ({self.id})'

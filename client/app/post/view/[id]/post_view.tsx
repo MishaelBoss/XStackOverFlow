@@ -1,7 +1,6 @@
 'use client'
 import { useState, useEffect } from 'react';
 import { useRouter } from 'next/navigation'
-import { Comment, Post } from '@/app/types/index.js';
 import Link from 'next/link';
 import Image from 'next/image';
 import CheckImage from '@/public/check.png'
@@ -10,6 +9,8 @@ import { PAGES } from '@/app/config/page.config';
 import { CartComment } from '@/app/components/shared/cart_comment';
 import { format } from 'date-fns';
 import { ru } from 'date-fns/locale';
+import { Post } from '@/app/shared/types/post.interface';
+import { Comment } from '@/app/shared/types/comment.interface';
 
 type Props = {
   params: Promise<{ id: string }>
@@ -187,18 +188,20 @@ export default function PostView({ params }: Props) {
     <>
     <div className="post-card">
         <div className="post-header">
-            {post.profile.image !== null && post.profile.image !== undefined ? (
-              <Image width={100} height={100} alt='PhotoUser' src={`${post.profile.image}`} className='post-author-avatar'/>
-            ) : (
-              <Image width={100} height={100} alt='PhotoUser' src={ImageUser} className='post-author-avatar'/>
-            )}
-            <div className="post-author-info">
-              <Link href={PAGES.VIEW_PROFILE(post.owner.id)} prefetch={true} onClick={(e) => { e.preventDefault(); router.push(PAGES.VIEW_PROFILE(post.owner.id), { scroll: false }); }} className="post-author-name">{post.owner.username}</Link>
-              <div className="post-date">{format(post.date_crete, 'dd MMMM yyyy HH:mm:ss', {locale: ru})}</div>
-              {post.isDecided && (
-                <Image width={20} height={20} src={CheckImage} alt="check" />
-              )}
+          {post.profile.image !== null && post.profile.image !== undefined ? (
+            <Image width={100} height={100} alt='PhotoUser' src={`${post.profile.image}`} className='post-author-avatar'/>
+          ) : (
+            <Image width={100} height={100} alt='PhotoUser' src={ImageUser} className='post-author-avatar'/>
+          )}
+          <div className="post-author-info">
+            <Link href={PAGES.VIEW_PROFILE(post.owner.id)} prefetch={true} onClick={(e) => { e.preventDefault(); router.push(PAGES.VIEW_PROFILE(post.owner.id), { scroll: false }); }} className="post-author-name">{post.owner.username}</Link>
+            <div className="post-date">
+              {format(post.created_at, 'dd MMMM yyyy HH:mm:ss', {locale: ru})}
             </div>
+            {post.isDecided && (
+              <Image width={20} height={20} src={CheckImage} alt="check" />
+            )}
+          </div>
         </div>
         <h2 className="post-title">{post.title}</h2>
         <div className="post-content">

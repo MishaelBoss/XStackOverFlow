@@ -1,24 +1,22 @@
 "use client"
 import { useState, FormEvent, ChangeEvent, useEffect } from 'react';
-import { UserProfile } from '@/app/types/index.js';
 import { useRouter } from 'next/navigation'
 import '@/app/authorization/authorization.css'
+import { UserProfile } from '@/app/shared/types/profile.interface';
 
 export default function EditProfile() {
   const [formData, setFormData] = useState<UserProfile>({
+    id: 0,
     username: '',
-    email: '',
     password: '',
-    profile:{
-      name: '',
-      surname: '',
-      patronymic: '',
-      phone: '',
-      about: '',
-      years: '',
-      image: null,
-    }
-
+    email: '',
+    name: '',
+    surname: '',
+    patronymic: '',
+    phone: '',
+    about: '',
+    years: '',
+    image: null,
   });
   const [error, setError] = useState<string>('');
   const router = useRouter()
@@ -47,18 +45,16 @@ export default function EditProfile() {
         if (res.ok) {
           const data = await res.json();
           setFormData({
-            username: data.username,
-            email: data.email,
-            password: data.password,
-            profile: {
-              name: data.profile.name,
-              surname: data.profile.surname,
-              patronymic: data.profile.patronymic,
-              phone: data.profile.phone || '',
-              about: data.profile.about,
-              years: data.profile.years,
-              image: data.profile.image,
-            },
+            id: (data.id && data.id) || 0,
+            username: (data.username && data.username) || '',
+            email: (data.email && data.email) || '',
+            name: (data.profile && data.profile.name) || '',
+            surname: (data.profile && data.profile.surname) || '',
+            patronymic: (data.profile && data.profile.patronymic) || '',
+            phone: (data.profile && data.profile.phone) || '',
+            about: (data.profile && data.profile.about) || '',
+            years: (data.profile && data.profile.years) || '',
+            image: (data.profile && data.profile.image) || '',
           });
         }else{
           throw new Error('Не удалось загрузить данные профиля.');
@@ -138,27 +134,27 @@ export default function EditProfile() {
           </div>
           <div>
               <label>Имя</label>
-              <input type="text" name="name" placeholder="имя < 4 симвл" value={formData.profile.name} onChange={handleChange}></input>
+              <input type="text" name="name" placeholder="имя < 4 симвл" value={formData.name} onChange={handleChange}></input>
           </div>
           <div>
               <label>Фамилия</label>
-              <input type="text" name="surname" placeholder="фамилия < 4 симвл" value={formData.profile.surname} onChange={handleChange}></input>
+              <input type="text" name="surname" placeholder="фамилия < 4 симвл" value={formData.surname} onChange={handleChange}></input>
           </div>
           <div>
               <label>Отчество</label>
-              <input type="text" name="patronymic" placeholder="отчество < 4 симвл" value={formData.profile.patronymic} onChange={handleChange}></input>
+              <input type="text" name="patronymic" placeholder="отчество < 4 симвл" value={formData.patronymic} onChange={handleChange}></input>
           </div>
           <div>
               <label>Номер телефона</label>
-              <input type="tel" name="phone" placeholder="телефон < 4 симвл" value={formData.profile.phone} onChange={handleChange}></input>
+              <input type="tel" name="phone" placeholder="телефон < 4 симвл" value={formData.phone} onChange={handleChange}></input>
           </div>
           <div>
               <label>About</label>
-              <textarea name="about" placeholder="лет < 1 симвл" value={formData.profile.about} onChange={handleChange}></textarea>
+              <textarea name="about" placeholder="лет < 1 симвл" value={formData.about} onChange={handleChange}></textarea>
           </div>
           <div>
               <label>Сколько лет</label>
-              <input type="text" name="years" placeholder="лет < 1 симвл" value={formData.profile.years} onChange={handleChange}/>
+              <input type="text" name="years" placeholder="лет < 1 симвл" value={formData.years} onChange={handleChange}/>
           </div>
           <div>
               <label>Введите пароль</label>

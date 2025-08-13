@@ -1,12 +1,12 @@
 'use client'
 import { useEffect, useState } from "react";
-import {Post} from '@/app/types/index'
+import { Post } from "./shared/types/post.interface";
 import CheckImage from '@/public/check.png'
 import { Header } from "./components/shared/header";
 import { CartPost } from "./components/shared/cart_post";
 
 export default function Home() {
-const [posts, setPosts] = useState<Post[]>([]);
+  const [posts, setPosts] = useState<Post[]>([]);
 
   useEffect(() => {
     const fetchPost = async () => {
@@ -33,7 +33,7 @@ const [posts, setPosts] = useState<Post[]>([]);
     <div className="p-20">
       <ul className="activity-list">
         {posts.map(post => (
-          <CartPost key={post.id} post={{id: post.id, title: post.title, image: CheckImage, isDecided: post.isDecided, date_crete: post.date_crete}}/>
+          <CartPost key={post.id} post={{id: post.id, title: post.title, image: CheckImage, isDecided: post.isDecided, created_at: post.created_at}}/>
         ))}
       </ul>
     </div>

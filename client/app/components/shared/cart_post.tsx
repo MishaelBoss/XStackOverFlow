@@ -10,7 +10,7 @@ interface Props{
 }
 
 export function CartPost({post}: Props){
-  const date_create = format(post.date_crete, 'dd MMMM yyyy HH:mm:ss', {locale: ru});
+  const date_create = format(post.created_at, 'dd MMMM yyyy HH:mm:ss', {locale: ru});
 
   return(
     <li className="activity-item">

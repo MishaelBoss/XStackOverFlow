@@ -5,5 +5,5 @@ export interface ICartPost{
     title: string
     image: StaticImageData
     isDecided: boolean
-    date_crete: string
+    created_at: string
 }
