@@ -1,0 +1,95 @@
+.div-authorization{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    padding: 20px;
+    .div-form-authorization{
+        width: 400px;
+        border-radius: 10px;
+        border: 2px solid rgba(255, 255, 255, 0.1);
+        padding: 50px 35px;
+        margin-left: auto;
+        margin-right: auto;
+        border: 1px solid white;
+        box-shadow: 0 0 10px rgba(255, 255, 255, 0.5);
+        h1{
+            text-align: center;
+            color: white;
+        }
+        form *{
+            color: black;
+            letter-spacing: 0.5px;
+            outline: none;
+            border: none;
+        }
+        form > h1{
+            font-size: 1.3em;
+            font-weight: 500;
+            line-height: 42px;
+            text-align: center;
+            color: #080710;
+            color: white;
+        }
+        label{
+            display: block;
+            margin-top: 30px;
+            font-size: 16px;
+            font-weight: 500;
+            color: white;
+        }
+        input{
+            display: block;
+            height: 50px;
+            width: 100%;
+            background-color: rgba(255, 255, 255, 0.07);
+            border-radius: 3px;
+            padding: 0 10px;
+            margin-top: 8px;
+            font-size: 14px;
+            font-weight: 300;
+            color: white;
+            border: 1px solid white;
+        }
+        textarea{
+            display: block;
+            height: 50px;
+            width: 100%;
+            background-color: rgba(255, 255, 255, 0.07);
+            border-radius: 3px;
+            padding: 0 10px;
+            margin-top: 8px;
+            font-size: 14px;
+            font-weight: 300;
+            color: white;
+            border: 1px solid white;
+        }
+        button {
+            margin-top: 20px;
+            width: 100%;
+            background-color: #ffffff;
+            color: #080710;
+            padding: 15px 0;
+            font-size: 18px;
+            font-weight: 600;
+            border-radius: 5px;
+            cursor: pointer;
+            padding: 10px;
+            transition: all 0.3s ease;
+            
+            &:hover {
+                background-color: #e6e6e6;
+            }
+        }
+        a{
+            color: #55acee;
+            text-decoration: none;
+            &:hover {
+                text-decoration: underline;
+            }
+        }
+        p{
+            text-align: center;
+        }
+    }
+}

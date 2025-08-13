@@ -1,0 +1,40 @@
+.header{
+    background: black;
+    z-index: 1;
+    position: sticky;
+    top: 0;
+    padding-left: 50px;
+    padding-right: 50px;
+    .Header-content{
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+    }
+    .Header-content-left{
+        img{
+            height: 2.5rem;
+            width: 2.5rem;
+        }
+    }
+    .Header-content-right{
+        display: flex;
+        position: relative;
+        float: right;
+        top: 2px;
+        a{
+            margin-left: 20px;
+            font-size: 18px;
+            color: white;
+            text-decoration: none;
+            float: left;
+            padding: 12px;
+            line-height: 25px;
+            border-radius: 30px;
+            cursor: pointer;
+            font-weight: bold;
+        }
+        a:hover {
+            box-shadow: 0 5px 25px rgba(255, 255, 255, 0.15);
+        }
+    }
+}

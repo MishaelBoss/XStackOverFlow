@@ -1,0 +1,104 @@
+.div-comments {
+    width: 100%;
+    max-width: 800px;
+    margin: 40px auto;
+    padding: 30px;
+    border-radius: 10px;
+    background-color: rgba(255, 255, 255, 0.05);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    box-shadow: 0 0 15px rgba(255, 255, 255, 0.1);
+}
+
+/* Заголовок блока */
+.div-comments h2 {
+    color: white;
+    text-align: center;
+    margin-bottom: 30px;
+    font-size: 24px;
+}
+
+/* Список комментариев */
+.comment-list {
+    margin-top: 30px;
+}
+
+/* Отдельный комментарий */
+.comment-item {
+    padding: 20px;
+    margin-bottom: 20px;
+    background-color: rgba(255, 255, 255, 0.03);
+    border-radius: 8px;
+    border-left: 3px solid #55acee;
+    transition: transform 0.2s;
+}
+
+.comment-item:hover {
+    transform: translateX(5px);
+}
+
+/* Шапка комментария */
+.comment-header {
+    display: flex;
+    align-items: center;
+    margin-bottom: 10px;
+}
+
+.comment-author {
+    font-weight: bold;
+    color: #55acee;
+    margin-right: 15px;
+}
+
+.comment-date {
+    color: rgba(255, 255, 255, 0.6);
+    font-size: 12px;
+}
+
+/* Текст комментария */
+.comment-text {
+    color: rgba(255, 255, 255, 0.9);
+    line-height: 1.5;
+}
+
+/* Форма добавления комментария */
+.comment-form {
+    margin-top: 40px;
+}
+
+.comment-form h3 {
+    color: white;
+    margin-bottom: 15px;
+}
+
+.comment-form textarea {
+    width: 100%;
+    min-height: 100px;
+    padding: 15px;
+    border-radius: 5px;
+    background-color: rgba(255, 255, 255, 0.07);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    color: white;
+    resize: vertical;
+    margin-bottom: 15px;
+}
+
+.comment-form textarea::placeholder {
+    color: rgba(255, 255, 255, 0.5);
+}
+
+.comment-form button {
+    background-color: #55acee;
+    color: white;
+    border: none;
+    padding: 12px 30px;
+    border-radius: 5px;
+    cursor: pointer;
+    font-weight: bold;
+    font-size: 16px;
+    transition: all 0.3s;
+}
+
+.comment-form button:hover {
+    background-color: #3d92d1;
+    transform: translateY(-2px);
+}

@@ -1,0 +1,119 @@
+@import "tailwindcss";
+
+:root {
+  --background: #ffffff;
+  --foreground: #171717;
+  --black: #000000;
+  --dark-gray: #111111;
+  --gray: #333333;
+  --light-gray: #CCCCCC;
+  --white: #FFFFFF;
+  --neon-purple: #8A2BE2;
+  --neon-blue: #00BFFF;
+  --neon-green: #7FFF00;
+  --neon-red: #FF0000;
+}
+
+@theme inline {
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --font-sans: var(--font-geist-sans);
+  --font-mono: var(--font-geist-mono);
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --background: #0a0a0a;
+    --foreground: #ededed;
+  }
+}
+
+body {
+  background: var(--background);
+  color: var(--foreground);
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+button:hover{
+  cursor: pointer;
+}
+
+a:hover{
+  cursor: pointer;
+}
+
+.info-card {
+  background-color: var(--dark-gray);
+  border-radius: 10px;
+  padding: 20px;
+  margin-bottom: 20px;
+  border: 1px solid var(--gray);
+  margin-left: 100px;
+  margin-right: 100px;
+}
+
+.info-card h2 {
+  font-family: 'Montserrat', sans-serif;
+  font-size: 20px;
+  margin-bottom: 15px;
+  color: var(--neon-blue);
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.info-item {
+  margin-bottom: 10px;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.info-item i {
+  color: var(--neon-blue);
+  width: 20px;
+  text-align: center;
+}
+
+.about-text {
+  background-color: var(--black);
+  padding: 15px;
+  border-radius: 5px;
+  border-left: 3px solid var(--neon-purple);
+  max-height: 200px;
+  overflow-y: auto;
+}
+
+.activity-list {
+    list-style: none;
+}
+
+.activity-item {
+    background-color: var(--dark-gray);
+    border-radius: 5px;
+    padding: 15px;
+    margin-bottom: 10px;
+    border-left: 3px solid var(--neon-blue);
+    transition: all 0.3s ease;
+}
+
+.activity-item:hover {
+    transform: translateX(5px);
+    box-shadow: 0 0 10px rgba(0, 191, 255, 0.3);
+}
+
+.activity-item a {
+    color: var(--white);
+    text-decoration: none;
+}
+
+.activity-item a:hover {
+    text-decoration: underline;
+    color: var(--neon-blue);
+}
+
+.activity-date {
+    color: var(--light-gray);
+    font-size: 14px;
+    margin-top: 5px;
+}
