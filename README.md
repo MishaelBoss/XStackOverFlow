@@ -10,7 +10,7 @@ XStackOverFlow — A modern open-source Q&A platform for developers that combine
 | **Frontend**    | Next.js 15, TypeScript, Tailwind CSS |
 | **Backend**     | Django, Django REST Framework      |
 | **Database** | PostgreSQL 17                       |
-| **Authentication** | JWT, OAuth 2.0                    |
+| **Authentication** | JWT                    |
 | **Infrastructure** | GitHub      |
 
 ## 🚀 Getting Started Server Django
