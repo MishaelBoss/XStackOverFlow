@@ -1,7 +1,19 @@
-This is a project on [Next.js](https://nextjs.org) and [Django](https://www.djangoproject.com/).
-Database [PostgreSQL](https://www.postgresql.org/)
+# XStackOverFlow
 
-## Getting Started Server Django
+[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
+
+XStackOverFlow — A modern open-source Q&A platform for developers that combines the best of StackOverflow with innovative features.
+## 🛠 Stack
+
+| Components       | Technologies                          |
+|-----------------|-------------------------------------|
+| **Frontend**    | Next.js 15, TypeScript, Tailwind CSS |
+| **Backend**     | Django, Django REST Framework      |
+| **Database** | PostgreSQL 17                       |
+| **Authentication** | JWT, OAuth 2.0                    |
+| **Infrastructure** | GitHub      |
+
+## 🚀 Getting Started Server Django
 
 First, run the development server:
 
@@ -15,7 +27,7 @@ Open [http://localhost:8000](http://localhost:8000) with your browser to see the
 
 You can start editing the page by modifying `/admin`. The page auto-updates as you edit the file
 
-## Getting Started Client server Next Js
+## 🚀 Getting Started Client server Next Js
 
 First, run the development server:
 
