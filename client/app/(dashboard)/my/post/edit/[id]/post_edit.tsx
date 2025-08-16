@@ -25,6 +25,8 @@ export default function PostEdit({ params }: Props) {
         phone: '',
         about: '',
         years: '',
+        username: '',
+        password: '',
     });
     const [imagePreview, setImagePreview] = useState<string | null>(null);
     const router = useRouter()

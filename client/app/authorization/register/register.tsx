@@ -7,6 +7,7 @@ import { UserRegister } from '@/app/shared/types/register.interface';
 
 export default function Register() {
   const [formData, setFormData] = useState<UserRegister>({
+    id: 0,
     username: "",
     email: "",
     password: "",

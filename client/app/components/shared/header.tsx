@@ -42,6 +42,7 @@ export const Header: React.FC<Props> = ({ className }) => {
             'Content-Type': 'application/json',
           },
         });
+
         if (res.ok) {
           setIsAuthenticated(true);
         } else {

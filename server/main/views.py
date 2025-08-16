@@ -1,4 +1,3 @@
-from django.shortcuts import render,redirect
 from rest_framework import status
 from rest_framework.response import Response
 from rest_framework.views import APIView
@@ -134,19 +133,6 @@ class ViewProfileAPI(APIView):
         try:
             user = User.objects.get(id=id)
             profile = UserProfile.objects.get(user=user)
-            posts = Post.objects.filter(owner=user).order_by('-created_at')
-            posts_data = []
-            for post in posts:
-                posts_data.append({
-                    'id': post.id,
-                    'title': post.title,
-                    'information': post.information,
-                    'image': request.build_absolute_uri(post.image.url) if post.image else None,
-                    'category': post.category,
-                    'created_at': post.created_at.strftime('%Y-%m-%d %H:%M:%S'),
-                    'isDecided': post.isDecided,
-                    'voice': post.voice,
-                })
             data = {
                 'id': user.id,
                 'username': user.username,
@@ -160,8 +146,7 @@ class ViewProfileAPI(APIView):
                     'about': profile.about,
                     'years': profile.years,
                     'image': request.build_absolute_uri(profile.image.url) if profile.image else None,
-                },
-                'posts': posts_data
+                }
             }
         except User.DoesNotExist:
             return Response({'Ошибка': 'Пользователь не найден'}, status=status.HTTP_404_NOT_FOUND)
@@ -239,6 +224,17 @@ class PostListAPI(APIView):
         try:
             post = Post.objects.all()
             serializer = PostSerializer(post, many=True)
+            return Response(serializer.data, status=status.HTTP_200_OK)
+        except Exception as e:
+            return Response({'Ошибка': str(e)}, status=status.HTTP_400_BAD_REQUEST)
+        
+
+class PostListUserAPI(APIView):
+    def get(self, request, id):
+        try:
+            user = User.objects.get(id=id)
+            posts = Post.objects.filter(owner=user).order_by('-created_at')
+            serializer = PostSerializer(posts, many=True)
             return Response(serializer.data, status=status.HTTP_200_OK)
         except Exception as e:
             return Response({'Ошибка': str(e)}, status=status.HTTP_400_BAD_REQUEST)

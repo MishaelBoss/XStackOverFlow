@@ -8,6 +8,7 @@ urlpatterns = [
     path('logout/', views.logout, name='logout'),
     path('api/profile/', ProfileAPI.as_view(), name='profile'),
     path('api/profile/view/<int:id>', ViewProfileAPI.as_view(), name='profile-view'),
+    path('api/profile/user/posts/view/<int:id>', PostListUserAPI.as_view(), name='posts-users-profile-view'),
     path('api/post/add/', PostAPI.as_view(), name='post_add'),
     path('api/post/<int:id>/', PostAPI.as_view(), name='post_detail'),
     path('api/posts/', PostListAPI.as_view(), name='all_posts_list'),

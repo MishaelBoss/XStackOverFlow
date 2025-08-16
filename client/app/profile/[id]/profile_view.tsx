@@ -6,6 +6,9 @@ import ImageUser from '@/public/default-avatar.png'
 import ImageInformation from '@/public/information.png'
 import { Post } from '@/app/shared/types/post.interface';
 import { UserProfile } from '@/app/shared/types/profile.interface';
+import { format } from 'date-fns';
+import { ru } from 'date-fns/locale';
+import { PAGES } from '@/app/config/page.config';
 
 type Props = {
   params: Promise<{ id: string }>
@@ -22,6 +25,7 @@ export default function Profile({ params }: Props) {
       try {
         const profileID = (await params).id;
         const res = await fetch(`http://localhost:8000/api/profile/view/${profileID}`);
+        const resPostUser = await fetch(`http://localhost:8000/api/profile/user/posts/view/${profileID}`);
 
         if(res.ok){
           const data = await res.json();
@@ -38,11 +42,15 @@ export default function Profile({ params }: Props) {
             image: (data.profile && data.profile.image) || '',
           });
         }
-      } catch (err: any) {
+        if(resPostUser.ok){
+          const data = await resPostUser.json();
+          setPosts(data);
+        }
+      } catch (error: any) {
         const errorMessage = err.message || 'Не удалось загрузить профиль.';
         setError(errorMessage);
-        if (err.message.includes('Токен') || err.message.includes('401')) {
-          router.push('/authorization/login');
+        if (error.message.includes('Токен') || error.message.includes('401')) {
+          router.push(PAGES.LOGIN());
         }
       }
     };
@@ -115,7 +123,7 @@ export default function Profile({ params }: Props) {
                 <li key={post.id} className="activity-item">
                   <a href={`/post/view/${post.id}`}>{post.title}</a>
                   <div className="activity-date">
-                    {post.created_at}
+                    {format(post.created_at, 'dd MMMM yyyy HH:mm:ss' , {locale: ru})}
                   </div>
                 </li>
               ))}

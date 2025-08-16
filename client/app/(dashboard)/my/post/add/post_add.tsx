@@ -21,6 +21,8 @@ export default function PostAdd() {
         phone: '',
         about: '',
         years: '',
+        username: '',
+        password: '',
     });
     const [error, setError] = useState<string>('');
     const [imagePreview, setImagePreview] = useState<string | null>(null);

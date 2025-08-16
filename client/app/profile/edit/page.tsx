@@ -47,6 +47,7 @@ export default function EditProfile() {
           setFormData({
             id: (data.id && data.id) || 0,
             username: (data.username && data.username) || '',
+            password: (data.possword && data.password) || '',
             email: (data.email && data.email) || '',
             name: (data.profile && data.profile.name) || '',
             surname: (data.profile && data.profile.surname) || '',
