@@ -77,7 +77,7 @@ class LogoutAPI(APIView):
 class ProfileAPI(APIView):
     permission_classes = (IsAuthenticated,)
     def get(self, request):
-        profile, created = UserProfile.objects.get_or_create(
+        UserProfile.objects.get_or_create(
             user=request.user,
             defaults={
                 'name': '',
